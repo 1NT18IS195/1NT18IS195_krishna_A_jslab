@@ -1,0 +1,71 @@
+//....html code....//
+<!-- Game that shows the plot of a castle and 
+logs the position of the player based on 
+the location of the mouse using event listeners
+changes the color of the divs using click event, 
+uses a common function for all the divs, passes 
+the static color and the id to the function
+Krishna kumar shah, 1NT18IS195 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="maze.css" />
+    <title>Castle</title>
+  </head>
+  <body></body>
+
+  <script type="text/javascript" src="maze.js"></script>
+</html>
+
+
+
+//....CSS code....//
+div {
+  align-self: center;
+  height: 50px;
+  width: 100%;
+  /* background-color: purple; */
+  /* margin-left: 30%;*/
+  margin-top: 2%;
+}
+
+.grid-container {
+  display: grid;
+}
+
+
+
+//....JS code...//
+let color = ["red", "blue", "yellow", "green", "purple"];
+let arr = ["b1", "b2", "b3", "b4", "b5"];
+for (let i = 0; i < 5; i++) {
+  var div = document.createElement("div");
+  div.id = arr[i];
+  div.style.width = "100%";
+  div.style.height = "50px";
+  div.style.background = color[i];
+  document.body.append(div);
+}
+
+let divs = document.querySelectorAll("div");
+console.log(divs);
+divs.forEach((div) => {
+  div.addEventListener("click", () => {
+    console.log("Log");
+    div.style.visibility = "hidden";
+    console.log(div.id);
+
+    let num = parseInt(div.id[1]);
+    if (num > 1) {
+      console.log(num);
+      div = divs[(num - 2) % 5];
+      console.log(div);
+      div.style.visibility = "visible";
+      console.log(div);
+    }
+  });
+});
