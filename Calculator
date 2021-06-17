@@ -1,0 +1,189 @@
+//....html code....//
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="cal.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div class="grid-container" id="gc">
+      <div class="grid-item" id="ip">
+        <form name="form">
+          <input type="text" class="textview" name="textview" />
+        </form>
+      </div>
+
+      <div class="grid-item">
+        <input class="button" type="button" value="7" onclick="insert(7)" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="8" onclick="insert(8)" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="9" onclick="insert(9)" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="DEL" onclick="back()" />
+      </div>
+      <div class="grid-item" colspan="2" id="clr">
+        <input
+          id="clear"
+          class="button"
+          type="button"
+          style="width: 108px"
+          value="AC"
+          onclick="clean()"
+        />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="4" onclick="insert(4)" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="5" onclick="insert(5)" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="6" onclick="insert(6)" />
+      </div>
+
+      <div class="grid-item">
+        <input class="button" type="button" value="X" onclick="insert('*')" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="/" onclick="insert('/')" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="1" onclick="insert(1)" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="2" onclick="insert(2)" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="3" onclick="insert(3)" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="+" onclick="insert('+')" />
+      </div>
+
+      <div class="grid-item">
+        <input class="button" type="button" value="-" onclick="insert('-')" />
+      </div>
+
+      <div class="grid-item">
+        <input class="button" type="button" value="0" onclick="insert(0)" />
+      </div>
+      <div class="grid-item">
+        <input class="button" type="button" value="." onclick="insert('.')" />
+      </div>
+
+      <div class="grid-item">
+        <input class="button" type="button" value="^" onclick="insert('^')" />
+      </div>
+
+      <div class="grid-item" id="eq">
+        <input class="button" type="button" value="=" onclick="equal()" />
+      </div>
+    </div>
+    <script src="cal.js"></script>
+  </body>
+</html>
+
+
+
+//....CSS code....//
+h1 {
+  margin-left: 45%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.button:hover {
+  background-color: peachpuff;
+}
+.button {
+  width: 50px;
+  height: 50px;
+  margin: 3px;
+  font-size: 25px;
+  pointer-events: visible;
+}
+
+.grid-container {
+  margin-left: 30%;
+  margin-right: 30%;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  background-color: purple;
+  padding: 10px;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+.grid-item {
+  background-color: pink;
+  border: 1px solid black;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+/* 
+#clr {
+  grid-row: 1;
+  /* grid-column: 4/6;
+} */
+
+#ip {
+  grid-row: 1;
+  grid-column: 1/6;
+}
+input[type="text"],
+select {
+  width: 85%;
+  padding: 20px 12px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* background-color: peachpuff; */
+  box-sizing: border-box;
+}
+
+#eq {
+  grid-row: 5;
+  grid-column: 4/6;
+}
+
+
+//....Js code....//
+
+function insert(num){
+    document.form.textview.value=document.form.textview.value+num ;
+}
+
+function equal()
+{
+    var exp= document.form.textview.value ;
+    if(exp){
+        document.form.textview.value = eval(exp)
+
+    }
+}
+
+function clean()
+{
+    document.form.textview.value="";
+}
+
+function back(){
+    var exp= document.form.textview.value ;
+    document.form.textview.value =exp.substring(0,exp.length-1) ;
+}
+
