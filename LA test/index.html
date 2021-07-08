@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+<style>
+    .box{
+        height: 250px;
+        width: 70%;
+        background-color: seagreen;
+    }
+
+    .box1{
+        height: 250px;
+        width: 70%;
+        background-color: blue;
+    }
+
+    .box2{
+        height: 250px;
+        width: 70%;
+        background-color: rebeccapurple;
+    }
+</style>
+</head>
+
+<body>
+   
+    <div>
+        <h2>Key Event</h2>
+        Name: <input type="text" class="keyboard" />
+    
+        <br><br>
+        <h2>Mouse Event</h2>
+        <div class="box" ondblclick="fun()"></div><br><br>
+        <div class="box1" onmousedown="fun1()"></div><br><br>
+        <div class="box2" onmouseup="fun2()"></div>
+        <script>
+            function fun()
+            {
+                alert("Double Click mouse event");
+            }
+
+            function fun1()
+            {
+                alert("mousedown event");
+            }
+
+            function fun2()
+            {
+                alert("mouseup event");
+            }
+            const keyBoard = document.querySelector('.keyboard');
+                keyBoard.addEventListener('keypress', e =>{
+                      console.log(e.type + ' ' + e.keyCode + ' ' + String.fromCharCode(e.keyCode));
+                   
+                })
+                keyBoard.addEventListener('keydown', e =>{
+                      console.log(e.type + ' ' + e.keyCode + ' ' + String.fromCharCode(e.keyCode));
+                   
+                })
+                keyBoard.addEventListener('keyup', e =>{
+                      console.log(e.type + ' ' + e.keyCode + ' ' + String.fromCharCode(e.keyCode));
+                   
+                })
+        </script>
+    
+    </div>
+</body>
+</html>
+
+ 
